@@ -3,14 +3,14 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: "L'escapade",
+      text: "Les Hydrolats",
       links: [
         {
-          text: 'Quoi ?',
+          text: "C'est quoi ?",
           href: getPermalink(),
         },
         {
-          text: 'Qui ?',
+          text: 'Qui suis-je ?',
           href: getPermalink('/accueil/qui'),
         },
         {
@@ -18,8 +18,8 @@ export const headerData = {
           href: getPermalink('/accueil/pourquoi'),
         },
         {
-          text: "Présentation (slide)",
-          href: getPermalink('/accueil/slide'),
+          text: 'Comment commander ?',
+          href: getPermalink('/accueil/comment'),
         },
       ],
     },
