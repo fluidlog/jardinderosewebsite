@@ -1,5 +1,5 @@
 site:
-  name: Jardin de rose
+  name: Les hydrolats du jardin de rose
   site: 'https://hydrolat.fr'
   base: '/'
   trailingSlash: false
@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Jardin de rose
+    default: Jardin de rose hydrolat
     template: '%s — Jardin de rose'
   description: "\U0001F680 Bienvenu sur le site de la Jardin de rose !"
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Jardin de rose
+    site_name: hydrolat jardin de rose
     images:
       - url: '~/assets/images/default.png'
         width: 1200
