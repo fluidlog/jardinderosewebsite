@@ -3,7 +3,7 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: "Les Hydrolats",
+      text: "Le jardin de rose",
       links: [
         {
           text: "C'est quoi ?",
@@ -24,31 +24,11 @@ export const headerData = {
       ],
     },
     {
-      text: 'Itinéraires',
+      text: 'Les Hydrolats',
       links: [
         {
-          text: '#1 - Le Mans > Lyon',
+          text: 'Le catalogue',
           href: getPermalink('/itineraires/itineraire1'),
-        },
-        {
-          text: '#1 - Lyon > Marseille',
-          href: getPermalink('/itineraires/itineraire2'),
-        },
-        {
-          text: '#1 - Marseille > Toulouse',
-          href: getPermalink('/itineraires/itineraire3'),
-        },
-        {
-          text: '#1 - Toulouse > Bordeaux',
-          href: getPermalink('/itineraires/itineraire4'),
-        },
-        {
-          text: '#1 - Bordeaux > Le Mans',
-          href: getPermalink('/itineraires/itineraire5'),
-        },
-        {
-          text: '#2 - Lyon > Genève > Chambéry',
-          href: getPermalink('/itineraires/itineraire6'),
         },
       ],
     },
