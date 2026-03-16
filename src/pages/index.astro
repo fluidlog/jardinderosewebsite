@@ -1,0 +1,187 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { YouTube } from 'astro-embed';
+
+const metadata = {
+  title: "Jardin de rose",
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <div class="dark:text-emerald-900 md:hidden md:inline">
+    <YouTube id='LTex2yMc85Y' params="autoplay:1"/>
+    =======================================
+  </div>
+
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Soutenez le projet',
+        href: 'https://fr.tipeee.com/transiscapade',
+        target: '_blank',
+        icon: 'tabler:moneybag',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      JARDIN DE ROSE
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <div class="dark:text-slate-200 hidden sm:inline">
+          <b>Vive les hydrolats !</b>
+          =============================
+        <ul>
+          <li>
+            <br><b>1ère escapade (mars > mai 2024)<br/></b>Le Mans > Lyon > Marseille > Toulouse > Bordeaux > Tours > Le Mans
+          </li>
+          <li>
+            <br><b>2ème escapade (sept 2024)<br></b> Lyon > Genève > Chambéry <br>avec le Tour Alternatiba
+          </li>
+        </ul>
+      </div>
+    </Fragment>
+  </Hero>
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline="DEFINITIONS"
+    title="Transi-quoi ? Que signifient tous ces termes ?"
+    subtitle="Voici quelques définitions pour mieux comprendre... :)"
+    items={[
+      {
+        title: "Transi-tion",
+        description:
+          "La transition, c'est l'ensemble des imaginaires et des actions pour passer d'un monde à un autre",
+        icon: 'tabler:route',
+      },
+      {
+        title: "Transi-scapade",
+        description:
+          "Une transiscapade, est une escapade à bord d'un véhicule intermédiaire, pour aller découvrir des alternatives représentant le monde vers lequel nous souhaitons aller.",
+        icon: 'tabler:bike',
+      },
+      {
+        title: "Transi-scope",
+        description:
+          "www.transiscope.org est un site web contenant une carte agrégative d'une cinquantaine de sources locales (bases de données d'alternatives), animées par des groupes locaux, qui référencent des alternatives de transition",
+        icon: 'tabler:search',
+      },
+      {
+        title: "Transi-scothon",
+        description:
+          "C'est un événement organisé par le projet Transiscope tous les 6 mois, dans une ville de France, pour fêter et cartographier les alternatives locales",
+        icon: 'tabler:home',
+      }
+    ]}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Foire aux questions"
+    subtitle="Les réponses aux questions les plus souvent posées."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: "Pourquoi le nom Transiscapade ?",
+        description:
+          "C'est un mixte entre Transiscope, transition, et Escapade. On aurait pu l'appeler Transibalade, mais ça faisait moins de points au scrable...",
+      },
+      {
+        title: "C'est quoi cet engin ?",
+        description:
+          "Le vhélio, est un vélo solaire auto-construit. C'est le produit que propose l'association 'Vélo Solaire pour tous', qui met en open-source les plans et la documentation pour fabriquer un vhélio. Cf. Liens en bas de page.",
+      },
+      {
+        title: "Combien de temps va durer chaque Transiscapade ?",
+        description:
+          "Cela dépend de la ville où se trouve les Transiscothons. Pour celui de Marseille, j'ai parcouru environ 2800 Km en 2,5 mois (A/R).",
+      },
+      {
+        title: "Quel est ton itinéraire ?",
+        description:
+          "Pour la première transiscapade (le Mans > Marseille), je vais faire une boucle : Tours, Vierzon, Bourges, Nevers, Lyon, Marseille, Toulouse, Bordeaux et retour à Tours. Pour la deuxième, ce sera plus court, de Lyon à Chambéry en passant par Genève où a lieu le 10 ème transiscothon. (voir Menu > Itinéraires dans le bandeau du haut...).",
+      },
+      {
+        title: "Combien de Km fais-tu par jour ?",
+        description:
+          "Pour la première, je vais faire des tronçons entre 40 et 70 km. Mon objectif est plus l'endurance que la vitesse.",
+      },
+      {
+        title: "Qu'as-tu emporté sur ton vélo solaire ?",
+        description:
+          "Une batterie de secours, une boite à outils, des vêtements de rechange, un peu de nourriture, de qui boire, un réchaud gaz, un matelas gonflable, 2 paires de chaussures, un ordinateur portable pour travailler et un ukulele pour faire de la musique avec celleux que je croise.",
+      },
+      {
+        title: "Quel poids fait le vélo solaire en tout ?",
+        description:
+          "Nu, le vélo solaire pèse 70 kg. Avec les bagages, environ 120 kg, plus moi, on arrive facilement à 200 kg...",
+      },
+      {
+        title: "Quelle puissance font le moteur, la batterie et le panneau photovoltaique ?",
+        description:
+          "Le moteur : 250 W, la batterie : 250 W, et le panneau photovoltaique : 235 W",
+      },
+      {
+        title: "Le panneau photovoltaique permet-il de recharger la batterie ?",
+        description:
+          "Cela dépend de l'ensoleillement, et de l'assistance dont j'ai besoin... Si je contribue moyennement, et qu'il fait beau (ciel bleu), je peux tenir indéfiniement. S'il y a des nuages, et que je demande une assistance maximale, je peux vider les 2 batteries en 30 km ! :) Lors de la première Transiscapade, j'ai fait Lyon > Touolouse sans avoir besoin de recharger au secteur.",
+      },
+      {
+        title: "A quelle vitesse roules-tu en moyenne ?",
+        description:
+          "Cela dépend du dénivelé. S'il ya des côtes et des pentes, je suis à 10 km/h en côte et maximum 25 km en descente. Sur du plat, je suis en général à 15-20 km/h en moyenne. La réglementation impose de ne pas dépasser 25 Km/h, et c'est déjà suffisant. Au dela, cela peut être dangereux pour moi et pour les autres.",
+      },
+      {
+        title: "Est-ce dangereux de traverser la France à Vélo ?",
+        description:
+          "Il faut rester concentrer et vigilent, mais globalement, si vous suivez les voix vertes, cela représente 95% de petites routes de campagne très calmes.",
+      },
+      {
+        title: "Es-tu entrainé physiquement ?",
+        description:
+          "Pas particulièrement, je me suis remis au vélo depuis 2 ans, et j'ai mon vélo solaire depuis 8 mois. J'ai juste testé en condition de froid assez régulièrement. Pour la transiscapade, je m'étire régulièrement, je bois souvent, et je respire profondément.",
+      },
+      {
+        title: "Le vélo solaire est-il la solution de demain ?",
+        description:
+          "Non, la solution pour demain est d'abord de moins nous déplacer, ou d'utiliser la marche ou le vélo. Pour déplacer une personne, le meilleur moyen reste le vélo. Le vélo solaire (avec batteries, panneau photovoltaique et moteur), ne servent qu'à transporter les bagages et le poids du vélo lui-même",
+      },
+      {
+        title: "Pourquoi Marseille ?",
+        description:
+          "Parce qu'après, il y a la mer, et le vhélio ne va pas dans l'eau.",
+      },
+      {
+        title: "Pourquoi avoir choisi le financement participatif pour ce projet ?",
+        description:
+          "J'ai détaillé tout cela dans le blog et dans une vidéo que je vous invite à consulter.",
+      },
+      {
+        title: "Comment aider le projet ?",
+        description:
+          "Vous pouvez nous aider bénévolement, en participant à la cartographie des alternatives via l'association de soutien à Transiscope. Vous pouvez aussi faire un don, soit à la Transiscapade, soit directement à Transiscope (voir site https://transiscope.com)",
+      },
+    ]}
+  />
+
+</Layout>
