@@ -1,272 +1,247 @@
-# 🚀 AstroWind
+# AstroPie
 
-<img src="https://raw.githubusercontent.com/onwidget/.github/main/resources/astrowind/lighthouse-score.png" align="right"
-     alt="AstroWind Lighthouse Score" width="100" height="358">
+AstroPie is a free theme for the Astro framework, designed to provide a beautiful and functional starting point for your next restaurant or bistro website. Whether you're running an Italian restaurant, a cozy bistro, or any other type of dining establishment, AstroPie has you covered with its clean design and easy-to-use components.
 
-🌟 _Most *starred* & *forked* Astro theme in 2022 & 2023_. 🌟
+## 🌟 About AstroPie
 
-**AstroWind** is a free and open-source template to make your website using **[Astro 4.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/)**. Ready to start a new project and designed taking into account web best practices.
+AstroPie is perfect for restaurant owners, developers, and designers who want to quickly set up a stylish and responsive website. It leverages modern web technologies to ensure a smooth and performant user experience.
 
-- ✅ **Production-ready** scores in **PageSpeed Insights** reports.
-- ✅ Integration with **Tailwind CSS** supporting **Dark mode** and **_RTL_**.
-- ✅ **Fast and SEO friendly blog** with automatic **RSS feed**, **MDX** support, **Categories & Tags**, **Social Share**, ...
-- ✅ **Image Optimization** (using new **Astro Assets** and **Unpic** for Universal image CDN).
-- ✅ Generation of **project sitemap** based on your routes.
-- ✅ **Open Graph tags** for social media sharing.
+## 🛠️ Technologies Used
 
-<br>
+-   **Astro**: The core framework for building fast, content-focused websites.
+-   **TailwindCSS**: A utility-first CSS framework for rapid UI development.
+-   **Alpine.js**: A lightweight JavaScript framework for adding interactivity.
+-   **Swiper**: A modern slider library for creating responsive sliders.
+-   **GLightbox**: A pure JavaScript lightbox for displaying images and videos.
 
-<img src="https://raw.githubusercontent.com/onwidget/.github/main/resources/astrowind/screenshot-astro3.png" alt="AstroWind Theme Screenshot">
+## 🚀 Installation and Deployment
 
-[![onWidget](https://custom-icon-badges.demolab.com/badge/made%20by%20-onWidget-556bf2?style=flat-square&logo=onwidget&logoColor=white&labelColor=101827)](https://onwidget.com)
-[![License](https://img.shields.io/github/license/onwidget/astrowind?style=flat-square&color=dddddd&labelColor=000000)](https://github.com/onwidget/astrowind/blob/main/LICENSE.md)
-[![Maintained](https://img.shields.io/badge/maintained%3F-yes-brightgreen.svg?style=flat-square)](https://github.com/onwidget)
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/onwidget/astrowind#contributing)
-[![Known Vulnerabilities](https://snyk.io/test/github/onwidget/astrowind/badge.svg?style=flat-square)](https://snyk.io/test/github/onwidget/astrowind)
-[![Stars](https://img.shields.io/github/stars/onwidget/astrowind.svg?style=social&label=stars&maxAge=86400&color=ff69b4)](https://github.com/onwidget/astrowind)
-[![Forks](https://img.shields.io/github/forks/onwidget/astrowind.svg?style=social&label=forks&maxAge=86400&color=ff69b4)](https://github.com/onwidget/astrowind)
+To get started with AstroPie, follow these steps:
 
-<br>
+1. **Clone AstroPie**:
 
-<details open>
-<summary>Table of Contents</summary>
+    ```sh
+    git clone https://github.com/wpinfusion/AstroPie.git
+    ```
 
-- [🚀 AstroWind](#-astrowind)
-  - [Demo](#demo)
-  - [Getting started](#getting-started)
-    - [Project structure](#project-structure)
-    - [Commands](#commands)
-    - [Configuration](#configuration)
-    - [Deploy](#deploy)
-      - [Deploy to production (manual)](#deploy-to-production-manual)
-      - [Deploy to Netlify](#deploy-to-netlify)
-      - [Deploy to Vercel](#deploy-to-vercel)
-  - [Frequently Asked Questions](#frequently-asked-questions)
-  - [Related projects](#related-projects)
-  - [Contributing](#contributing)
-  - [Acknowledgements](#acknowledgements)
-  - [License](#license)
+2. **Install Dependencies**:
 
-</details>
+    ```sh
+    npm install
+    ```
 
-<br>
+3. **Run Development Server**:
 
-## Demo
+    ```sh
+    npm run dev
+    ```
 
-📌 [https://astrowind.vercel.app/](https://astrowind.vercel.app/)
+4. **Build for Production**:
 
-<br>
+    ```sh
+    npm run build
+    ```
 
-## Getting started
+## 📂 Project Structure
 
-**AstroWind** tries to give you quick access to creating a website using [Astro 4.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/). It's a free theme which focuses on simplicity, good practices and high performance.
+Inside of your AstroPie project, you'll see the following folders and files:
 
-Very little vanilla javascript is used only to provide basic functionality so that each developer decides which framework (React, Vue, Svelte, Solid JS...) to use and how to approach their goals..
-
-### Project structure
-
-Inside **AstroWind** template, you'll see the following folders and files:
-
-```
+```text
 /
 ├── public/
-│   ├── _headers
-│   └── robots.txt
+│   └── favicon.svg
 ├── src/
 │   ├── assets/
-│   │   ├── favicons/
-│   │   ├── images/
-│   │   └── styles/
-│   │       └── tailwind.css
 │   ├── components/
-│   │   ├── blog/
-│   │   ├── common/
-│   │   ├── ui/
-│   │   ├── widgets/
-│   │   │   ├── Header.astro
-│   │   │   └── ...
-│   │   ├── CustomStyles.astro
-│   │   ├── Favicons.astro
-│   │   └── Logo.astro
-│   ├── content/
-│   │   ├── post/
-│   │   │   ├── post-slug-1.md
-│   │   │   ├── post-slug-2.mdx
-│   │   │   └── ...
-│   │   └-- config.ts
 │   ├── layouts/
-│   │   ├── Layout.astro
-│   │   ├── MarkdownLayout.astro
-│   │   └── PageLayout.astro
+│   │   └── Layout.astro
 │   ├── pages/
-│   │   ├── [...blog]/
-│   │   │   ├── [category]/
-│   │   │   ├── [tag]/
-│   │   │   ├── [...page].astro
-│   │   │   └── index.astro
 │   │   ├── index.astro
-│   │   ├── 404.astro
-│   │   ├-- rss.xml.ts
-│   │   └── ...
-│   ├── utils/
-│   ├── config.yaml
-│   └── navigation.js
-├── package.json
-├── astro.config.mjs
-└── ...
+│   │   ├── about-us.astro
+│   │   ├── menu.astro
+│   │   ├── gallery.astro
+│   │   ├── contact.astro
+│   │   └── book.astro
+│   └── styles/
+└── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 📄 Premade Pages
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+-   Home: index.astro
+-   About Us: about-us.astro
+-   Menu: menu.astro
+-   Gallery: gallery.astro
+-   Contact: contact.astro
+-   Book a Table: book.astro
 
-Any static assets, like images, can be placed in the `public/` directory if they do not require any transformation or in the `assets/` directory if they are imported directly.
+## 🧩 Available Components
 
-[![Edit AstroWind on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/onwidget/astrowind/tree/main) [![Open in Gitpod](https://svgshare.com/i/xdi.svg)](https://gitpod.io/?on=gitpod#https://github.com/onwidget/astrowind) [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/onwidget/astrowind)
+-   Article: Article.astro
+-   Badge: Badge.astro
+-   Button: Button.astro
+-   ButtonCallUs: ButtonCallUs.astro
+-   Card: Card.astro
+-   Footer: Footer.astro
+-   FormBook: FormBook.astro
+-   FormContact: FormContact.astro
+-   Grid: Grid.astro
+-   Header: Header.astro
+-   Heading: Heading.astro
+-   Hero: Hero.astro
+-   Menu: Menu.astro
+-   ReviewSlider: ReviewSlider.astro
+-   Section: Section.astro
+-   WideImage: WideImage.astro
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file `README.md`. Update `src/config.yaml` and contents. Have fun!
+## 📚 Component Documentation
 
-<br>
+### Article
 
-### Commands
+A component for displaying articles.
 
-All commands are run from the root of the project, from a terminal:
-
-| Command               | Action                                             |
-| :-------------------- | :------------------------------------------------- |
-| `npm install`         | Installs dependencies                              |
-| `npm run dev`         | Starts local dev server at `localhost:3000`        |
-| `npm run build`       | Build your production site to `./dist/`            |
-| `npm run preview`     | Preview your build locally, before deploying       |
-| `npm run format`      | Format codes with Prettier                         |
-| `npm run lint:eslint` | Run Eslint                                         |
-| `npm run astro ...`   | Run CLI commands like `astro add`, `astro preview` |
-
-<br>
-
-### Configuration
-
-Basic configuration file: `./src/config.yaml`
-
-```yaml
-site:
-  name: 'Example'
-  site: 'https://example.com'
-  base: '/' # Change this if you need to deploy to Github Pages, for example
-  trailingSlash: false # Generate permalinks with or without "/" at the end
-
-  googleSiteVerificationId: false # Or some value,
-
-# Default SEO metadata
-metadata:
-  title:
-    default: 'Example'
-    template: '%s — Example'
-  description: 'This is the default meta description of Example website'
-  robots:
-    index: true
-    follow: true
-  openGraph:
-    site_name: 'Example'
-    images:
-      - url: '~/assets/images/default.jpg'
-        width: 1200
-        height: 628
-    type: website
-  twitter:
-    handle: '@twitter_user'
-    site: '@twitter_user'
-    cardType: summary_large_image
-
-i18n:
-  language: en
-  textDirection: ltr
-
-apps:
-  blog:
-    isEnabled: true
-    postsPerPage: 6
-
-    post:
-      isEnabled: true
-      permalink: '/blog/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
-      robots:
-        index: true
-
-    list:
-      isEnabled: true
-      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
-      robots:
-        index: true
-
-    category:
-      isEnabled: true
-      pathname: 'category' # Category main path /category/some-category, you can change this to "group" (/group/some-category)
-      robots:
-        index: true
-
-    tag:
-      isEnabled: true
-      pathname: 'tag' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
-      robots:
-        index: false
-
-ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+```astro
+<Article contain={true}>
+  <h1>Title</h1>
+  <p>Content goes here...</p>
+</Article>
 ```
 
-<br>
+### Badge
 
-### Deploy
+A component for displaying badges.
 
-#### Deploy to production (manual)
-
-You can create an optimized production build with:
-
-```shell
-npm run build
+```astro
+<Badge color="green" title="New" />
 ```
 
-Now, your website is ready to be deployed. All generated files are located at
-`dist` folder, which you can deploy the folder to any hosting service you
-prefer.
+### Button
 
-#### Deploy to Netlify
+A component for displaying buttons.
 
-Clone this repository on own GitHub account and deploy to Netlify:
+```astro
+<Button color="green" url="/contact">Contact Us</Button>
+```
 
-[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/onwidget/astrowind)
+### ButtonCallUs
 
-#### Deploy to Vercel
+A component for displaying a call-to-action button.
 
-Clone this repository on own GitHub account and deploy to Vercel:
+```astro
+<ButtonCallUs />
+```
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fonwidget%2Fastrowind)
+### Card
 
-<br>
+A component for displaying cards.
 
-## Frequently Asked Questions
+```astro
+<Card>
+  <h2>Card Title</h2>
+  <p>Card content goes here...</p>
+</Card>
+```
 
-- Why?
--
--
+### Footer
 
-<br>
+A component for displaying the footer.
 
-## Related projects
+```astro
+<Footer />
+```
 
-- [TailNext](https://tailnext.vercel.app/) - Free template using Next.js 14 and Tailwind CSS with the new App Router.
-- [Qwind](https://qwind.pages.dev/) - Free template to make your website using Qwik + Tailwind CSS.
+### FormBook
 
-## Contributing
+A component for displaying a booking form.
 
-If you have any idea, suggestions or find any bugs, feel free to open a discussion, an issue or create a pull request.
-That would be very useful for all of us and we would be happy to listen and take action.
+```astro
+<FormBook />
+```
 
-## Acknowledgements
+### FormContact
 
-Initially created by [onWidget](https://onwidget.com) and maintained by a community of [contributors](https://github.com/onwidget/astrowind/graphs/contributors).
+A component for displaying a contact form.
 
-## License
+```astro
+<FormContact />
+```
 
-**AstroWind** is licensed under the MIT license — see the [LICENSE](./LICENSE.md) file for details.
+### Grid
+
+A component for displaying a grid layout.
+
+```astro
+<Grid>
+  <div slot="grid-content-1">Content 1</div>
+  <div slot="grid-content-2">Content 2</div>
+  <div slot="grid-content-3">Content 3</div>
+</Grid>
+```
+
+### Header
+
+A component for displaying the header.
+
+```astro
+<Header />
+```
+
+### Heading
+
+A component for displaying headings.
+
+```astro
+<Heading>
+  <h1 slot="heading-title">Title</h1>
+  <p slot="heading-content">Content goes here...</p>
+</Heading>
+```
+
+### Hero
+
+A component for displaying the hero section.
+
+```astro
+<Hero>
+  <div slot="hero-content-left">Left Content</div>
+  <div slot="hero-content-right">Right Content</div>
+</Hero>
+```
+
+### Menu
+
+A component for displaying a menu.
+
+```astro
+<Menu />
+```
+
+### ReviewSlider
+
+A component for displaying a review slider.
+
+```astro
+<ReviewSlider />
+```
+
+### Section
+
+A component for displaying a section.
+
+```astro
+<Section>
+  <p>Section content goes here...</p>
+</Section>
+```
+
+### WideImage
+
+A component for displaying a wide image.
+
+```astro
+<WideImage src={importedImage} alt="alt description" />
+```
+
+## 👀 Stuck?
+
+If you have any questions or need help with AstroPie, feel free to reach out to me at info@wpinfusion.com, or open an issue on the [AstroPie GitHub repository](https://github.com/wpinfusion/AstroPie)

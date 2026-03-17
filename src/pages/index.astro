@@ -1,187 +1,315 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
+import Layout from "~/layouts/Layout.astro";
+import Section from "~/components/Section.astro";
+import Hero from "~/components/Hero.astro";
+import { Picture, Image } from "astro:assets";
+import Badge from "~/components/Badge.astro";
+import Button from "~/components/Button.astro";
+import ButtonCallUs from "~/components/ButtonCallUs.astro";
+import Grid from "~/components/Grid.astro";
+import Heading from "~/components/Heading.astro";
+import WideImage from "~/components/WideImage.astro";
+import ReviewSlider from "~/components/ReviewSlider.astro";
 
-import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
-import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import { YouTube } from 'astro-embed';
-
-const metadata = {
-  title: "Jardin de rose",
-  ignoreTitleTemplate: true,
-};
+// Images
+import PizzaHero from "~/assets/images/pizza-hero.png";
+import Pizza from "~/assets/images/pizza.png";
+import Spaghetti from "~/assets/images/spaghetti.png";
+import Fish from "~/assets/images/fish.png";
+import DecorativeImage from "~/assets/images/pexels-shvetsa-5953523.jpg";
+import reviewAuthors from "~/assets/images/review-authors.png";
+import Dessert from "~/assets/images/dessert.png";
+import Mussels from "~/assets/images/mussels2.png";
 ---
 
-<Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
+<Layout title="Home" pageTitle="Home" description="Welcome to our restaurant!">
+	<Section class:list={"bg-white"}>
+		<Hero>
+			<div slot="hero-content-left" class="prose max-w-none max-lg:order-1">
+				<Badge title="il ristorante italiana" />
+				<h1 class="font-black">Real Italian food in a real Italian restaurant...</h1>
 
-  <div class="dark:text-emerald-900 md:hidden md:inline">
-    <YouTube id='LTex2yMc85Y' params="autoplay:1"/>
-    =======================================
-  </div>
+				<p>
+					Experience the taste of Italy with our authentic dishes made from the finest ingredients. Indulge in
+					our wide variety of pizzas, pastas, and desserts, all crafted with love and tradition. Whether
+					you're dining in or taking out, we promise a memorable culinary experience.
+				</p>
 
-  <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Soutenez le projet',
-        href: 'https://fr.tipeee.com/transiscapade',
-        target: '_blank',
-        icon: 'tabler:moneybag',
-      },
-    ]}
-  >
-    <Fragment slot="title">
-      JARDIN DE ROSE
-    </Fragment>
+				<span class="text-brand-green font-medium">✔ We also deliver</span>
 
-    <Fragment slot="subtitle">
-      <div class="dark:text-slate-200 hidden sm:inline">
-          <b>Vive les hydrolats !</b>
-          =============================
-        <ul>
-          <li>
-            <br><b>1ère escapade (mars > mai 2024)<br/></b>Le Mans > Lyon > Marseille > Toulouse > Bordeaux > Tours > Le Mans
-          </li>
-          <li>
-            <br><b>2ème escapade (sept 2024)<br></b> Lyon > Genève > Chambéry <br>avec le Tour Alternatiba
-          </li>
-        </ul>
-      </div>
-    </Fragment>
-  </Hero>
+				<div class="mt-8 flex items-center gap-x-8">
+					<Button url="/book">Book now</Button>
+					<ButtonCallUs />
+				</div>
+			</div>
+			<div slot="hero-content-right">
+				<Picture
+					class:list={"mx-auto"}
+					src={PizzaHero}
+					height={600}
+					formats={["avif", "webp"]}
+					alt="A description of my image."
+					loading={"eager"}
+					fetchpriority={"high"}
+				/>
+			</div>
+		</Hero>
+	</Section>
 
-  <!-- Features Widget *************** -->
+	<WideImage image={DecorativeImage} alt="Just an image" class:list={"aspect-video lg:aspect-[16/6]"} />
 
-  <Features
-    id="features"
-    tagline="DEFINITIONS"
-    title="Transi-quoi ? Que signifient tous ces termes ?"
-    subtitle="Voici quelques définitions pour mieux comprendre... :)"
-    items={[
-      {
-        title: "Transi-tion",
-        description:
-          "La transition, c'est l'ensemble des imaginaires et des actions pour passer d'un monde à un autre",
-        icon: 'tabler:route',
-      },
-      {
-        title: "Transi-scapade",
-        description:
-          "Une transiscapade, est une escapade à bord d'un véhicule intermédiaire, pour aller découvrir des alternatives représentant le monde vers lequel nous souhaitons aller.",
-        icon: 'tabler:bike',
-      },
-      {
-        title: "Transi-scope",
-        description:
-          "www.transiscope.org est un site web contenant une carte agrégative d'une cinquantaine de sources locales (bases de données d'alternatives), animées par des groupes locaux, qui référencent des alternatives de transition",
-        icon: 'tabler:search',
-      },
-      {
-        title: "Transi-scothon",
-        description:
-          "C'est un événement organisé par le projet Transiscope tous les 6 mois, dans une ville de France, pour fêter et cartographier les alternatives locales",
-        icon: 'tabler:home',
-      }
-    ]}
-  />
+	<Section class:list={"bg-white"}>
+		<Heading>
+			<h2 slot="heading-title" class="font-black text-brand-green h2">Our dishes</h2>
+			<p slot="heading-content">
+				Explore our selection of authentic Italian dishes, from classic pizzas to homemade pastas.
+			</p>
+		</Heading>
 
-  <!-- FAQs Widget ******************* -->
+		<Grid>
+			<div slot="grid-content-1">
+				<div class="flex flex-col items-center prose text-center">
+					<Picture
+						class:list={"not-prose w-full h-auto"}
+						src={Pizza}
+						formats={["avif", "webp"]}
+						alt="A description of my image."
+					/>
+					<h3 class="h4 mt-0 font-black">Pasta &amp; Spaghetti</h3>
+					<p>
+						Pasta is a staple of Italian cuisine, with a rich history dating back centuries. It comes in
+						various shapes and sizes, each suited to different sauces and preparations.
+					</p>
+				</div>
+			</div>
 
-  <FAQs
-    title="Foire aux questions"
-    subtitle="Les réponses aux questions les plus souvent posées."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: "Pourquoi le nom Transiscapade ?",
-        description:
-          "C'est un mixte entre Transiscope, transition, et Escapade. On aurait pu l'appeler Transibalade, mais ça faisait moins de points au scrable...",
-      },
-      {
-        title: "C'est quoi cet engin ?",
-        description:
-          "Le vhélio, est un vélo solaire auto-construit. C'est le produit que propose l'association 'Vélo Solaire pour tous', qui met en open-source les plans et la documentation pour fabriquer un vhélio. Cf. Liens en bas de page.",
-      },
-      {
-        title: "Combien de temps va durer chaque Transiscapade ?",
-        description:
-          "Cela dépend de la ville où se trouve les Transiscothons. Pour celui de Marseille, j'ai parcouru environ 2800 Km en 2,5 mois (A/R).",
-      },
-      {
-        title: "Quel est ton itinéraire ?",
-        description:
-          "Pour la première transiscapade (le Mans > Marseille), je vais faire une boucle : Tours, Vierzon, Bourges, Nevers, Lyon, Marseille, Toulouse, Bordeaux et retour à Tours. Pour la deuxième, ce sera plus court, de Lyon à Chambéry en passant par Genève où a lieu le 10 ème transiscothon. (voir Menu > Itinéraires dans le bandeau du haut...).",
-      },
-      {
-        title: "Combien de Km fais-tu par jour ?",
-        description:
-          "Pour la première, je vais faire des tronçons entre 40 et 70 km. Mon objectif est plus l'endurance que la vitesse.",
-      },
-      {
-        title: "Qu'as-tu emporté sur ton vélo solaire ?",
-        description:
-          "Une batterie de secours, une boite à outils, des vêtements de rechange, un peu de nourriture, de qui boire, un réchaud gaz, un matelas gonflable, 2 paires de chaussures, un ordinateur portable pour travailler et un ukulele pour faire de la musique avec celleux que je croise.",
-      },
-      {
-        title: "Quel poids fait le vélo solaire en tout ?",
-        description:
-          "Nu, le vélo solaire pèse 70 kg. Avec les bagages, environ 120 kg, plus moi, on arrive facilement à 200 kg...",
-      },
-      {
-        title: "Quelle puissance font le moteur, la batterie et le panneau photovoltaique ?",
-        description:
-          "Le moteur : 250 W, la batterie : 250 W, et le panneau photovoltaique : 235 W",
-      },
-      {
-        title: "Le panneau photovoltaique permet-il de recharger la batterie ?",
-        description:
-          "Cela dépend de l'ensoleillement, et de l'assistance dont j'ai besoin... Si je contribue moyennement, et qu'il fait beau (ciel bleu), je peux tenir indéfiniement. S'il y a des nuages, et que je demande une assistance maximale, je peux vider les 2 batteries en 30 km ! :) Lors de la première Transiscapade, j'ai fait Lyon > Touolouse sans avoir besoin de recharger au secteur.",
-      },
-      {
-        title: "A quelle vitesse roules-tu en moyenne ?",
-        description:
-          "Cela dépend du dénivelé. S'il ya des côtes et des pentes, je suis à 10 km/h en côte et maximum 25 km en descente. Sur du plat, je suis en général à 15-20 km/h en moyenne. La réglementation impose de ne pas dépasser 25 Km/h, et c'est déjà suffisant. Au dela, cela peut être dangereux pour moi et pour les autres.",
-      },
-      {
-        title: "Est-ce dangereux de traverser la France à Vélo ?",
-        description:
-          "Il faut rester concentrer et vigilent, mais globalement, si vous suivez les voix vertes, cela représente 95% de petites routes de campagne très calmes.",
-      },
-      {
-        title: "Es-tu entrainé physiquement ?",
-        description:
-          "Pas particulièrement, je me suis remis au vélo depuis 2 ans, et j'ai mon vélo solaire depuis 8 mois. J'ai juste testé en condition de froid assez régulièrement. Pour la transiscapade, je m'étire régulièrement, je bois souvent, et je respire profondément.",
-      },
-      {
-        title: "Le vélo solaire est-il la solution de demain ?",
-        description:
-          "Non, la solution pour demain est d'abord de moins nous déplacer, ou d'utiliser la marche ou le vélo. Pour déplacer une personne, le meilleur moyen reste le vélo. Le vélo solaire (avec batteries, panneau photovoltaique et moteur), ne servent qu'à transporter les bagages et le poids du vélo lui-même",
-      },
-      {
-        title: "Pourquoi Marseille ?",
-        description:
-          "Parce qu'après, il y a la mer, et le vhélio ne va pas dans l'eau.",
-      },
-      {
-        title: "Pourquoi avoir choisi le financement participatif pour ce projet ?",
-        description:
-          "J'ai détaillé tout cela dans le blog et dans une vidéo que je vous invite à consulter.",
-      },
-      {
-        title: "Comment aider le projet ?",
-        description:
-          "Vous pouvez nous aider bénévolement, en participant à la cartographie des alternatives via l'association de soutien à Transiscope. Vous pouvez aussi faire un don, soit à la Transiscapade, soit directement à Transiscope (voir site https://transiscope.com)",
-      },
-    ]}
-  />
+			<div slot="grid-content-2">
+				<div class="flex flex-col items-center prose text-center">
+					<Picture
+						class:list={"not-prose w-full h-auto"}
+						src={Spaghetti}
+						formats={["avif", "webp"]}
+						alt="A description of my image."
+					/>
+					<h3 class="h4 mt-0 font-black">Pasta &amp; Spaghetti</h3>
+					<p>
+						Pasta is a staple of Italian cuisine, with a rich history dating back centuries. It comes in
+						various shapes and sizes, each suited to different sauces and preparations.
+					</p>
+				</div>
+			</div>
 
+			<div slot="grid-content-3">
+				<div class="flex flex-col items-center prose text-center">
+					<Picture
+						class:list={"not-prose w-full h-auto"}
+						src={Fish}
+						formats={["avif", "webp"]}
+						alt="A description of my image."
+					/>
+					<h3 class="h4 mt-0 font-black">Pasta &amp; Spaghetti</h3>
+					<p>
+						Pasta is a staple of Italian cuisine, with a rich history dating back centuries. It comes in
+						various shapes and sizes, each suited to different sauces and preparations.
+					</p>
+				</div>
+			</div>
+		</Grid>
+	</Section>
+
+	<Section class:list={"bg-white"}>
+		<Hero>
+			<div slot="hero-content-left" class="prose lg:order-2">
+				<h1 class="font-black">Pizza</h1>
+
+				<p>
+					Pizza is a beloved dish that originated in Italy and has since become a global sensation. Its
+					versatility allows for endless combinations of toppings, from classic margherita with fresh
+					tomatoes, mozzarella, and basil, to more adventurous options like barbecue chicken or vegan cheese.
+				</p>
+
+				<p>
+					Whether enjoyed at a cozy pizzeria or delivered to your doorstep, pizza brings people together and
+					satisfies cravings like no other food. Beyond its delicious taste, pizza also holds cultural
+					significance. It is often associated with gatherings, celebrations, and comfort.
+				</p>
+
+				<div class="mt-8">
+					<Button url="/menu">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+							class="size-5 inline-block"
+							aria-hidden="true"
+						>
+							<path
+								fill-rule="evenodd"
+								d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+								clip-rule="evenodd"></path>
+						</svg>
+						View menu
+					</Button>
+				</div>
+			</div>
+			<div slot="hero-content-right">
+				<Picture
+					class:list={"mx-auto"}
+					src={PizzaHero}
+					height={600}
+					formats={["avif", "webp"]}
+					alt="A description of my image."
+				/>
+			</div>
+		</Hero>
+	</Section>
+
+	<Section class:list={"bg-white"}>
+		<Hero>
+			<div slot="hero-content-left" class="prose max-w-none max-lg:order-1">
+				<Badge color="red" title="delicious" />
+				<h2 class="font-black h2 !my-4">Plate of the week</h2>
+
+				<span class="text-brand-red text-2xl font-bold italic">Fresh Mussels!</span>
+
+				<p>
+					Our plate of the week is a delicious dish that changes every week. This week, we're featuring fresh
+					mussels cooked in a white wine and garlic sauce, served with a side of crispy fries. Don't miss out
+					on this limited-time offer!
+				</p>
+
+				<div class="mt-8">
+					<Button color="red" url="/book">Book now</Button>
+				</div>
+			</div>
+			<div slot="hero-content-right">
+				<Picture
+					class:list={"mx-auto"}
+					src={Mussels}
+					height={600}
+					formats={["avif", "webp"]}
+					alt="A description of my image."
+				/>
+			</div>
+		</Hero>
+	</Section>
+
+	<!-- Reviews -->
+	<Section class:list={"bg-brand-red/20 relative"}>
+		<div class="py-16">
+			<Hero>
+				<div slot="hero-content-left" class="prose max-w-none order-2">
+					<div class="text-center not-prose">
+						<Badge color="white" title="reviews" />
+					</div>
+					<h2 slot="heading-title" class="font-black h4 text-center mt-0 mb-4">What our customers say...</h2>
+					<div slot="heading-content">
+						<p class="text-center">
+							Don't just take our word for it. Read what our customers have to say about their dining
+							experience at our restaurant.
+						</p>
+
+						<ReviewSlider />
+					</div>
+				</div>
+
+				<div slot="hero-content-right">
+					<Picture src={reviewAuthors} alt="Review authors" class="w-full h-auto" />
+				</div>
+			</Hero>
+		</div>
+
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 1440 320"
+			class="absolute h-40 w-full top-0 inset-x-0 rotate-180"
+			preserveAspectRatio="none"
+			><path
+				fill="#ffffff"
+				fill-opacity="1"
+				d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+			></path>
+		</svg>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 1440 320"
+			class="absolute h-40 w-full bottom-0 inset-x-0"
+			preserveAspectRatio="none"
+			><path
+				fill="#ffffff"
+				fill-opacity="1"
+				d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+			></path>
+		</svg>
+	</Section>
+
+	<!-- Desserts -->
+	<Section class:list={"bg-white"}>
+		<Hero>
+			<div slot="hero-content-left" class="prose max-w-none order-2">
+				<Badge title="dolce" />
+				<h2 slot="heading-title" class="font-black text-brand-green h2 !my-4">Desserts</h2>
+				<div slot="heading-content">
+					<p>
+						Indulge in our selection of sweet treats, from classic tiramisu to decadent chocolate cake. Our
+						desserts are the perfect way to end your meal on a high note.
+					</p>
+
+					<p>
+						Experience the taste of Italy with our authentic dishes made from the finest ingredients.
+						Indulge in our wide variety of pizzas, pastas, and desserts, all crafted with love and
+						tradition. Whether you're dining in or taking out, we promise a memorable culinary experience.
+					</p>
+
+					<div class="mt-8">
+						<Button url="/menu">See our menu</Button>
+					</div>
+				</div>
+			</div>
+
+			<div slot="hero-content-right">
+				<Picture
+					class:list={"mx-auto"}
+					src={Dessert}
+					height={600}
+					formats={["avif", "webp"]}
+					alt="A description of my image."
+				/>
+			</div>
+		</Hero>
+	</Section>
+
+	<!-- Contact -->
+	<Section class:list={"bg-white"}>
+		<Hero>
+			<div slot="hero-content-left" class="prose max-w-none">
+				<Badge color="red" title="benvenuto" />
+				<h2 slot="heading-title" class="font-black text-brand-red h2 !my-4">Drop by and say hello</h2>
+				<div slot="heading-content">
+					<p>
+						We're located in the heart of the city, just a stone's throw away from the main square. Our
+						restaurant is the perfect place to enjoy a delicious meal with friends and family.
+					</p>
+
+					<span class="text-brand-red font-medium">
+						✔ We also do take-away, so you can enjoy your food at home
+					</span>
+
+					<div class="mt-8">
+						<Button color="red" url="/book">Book a table</Button>
+					</div>
+				</div>
+			</div>
+
+			<div slot="hero-content-right">
+				<Picture
+					class:list={"mx-auto"}
+					src={Dessert}
+					height={600}
+					formats={["avif", "webp"]}
+					alt="A description of my image."
+				/>
+			</div>
+		</Hero>
+	</Section>
 </Layout>

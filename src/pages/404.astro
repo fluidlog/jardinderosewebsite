@@ -1,24 +1,32 @@
 ---
-import Layout from '~/layouts/Layout.astro';
-import { getHomePermalink } from '~/utils/permalinks';
-
-const title = `Error 404`;
+import Layout from "~/layouts/Layout.astro";
+import Section from "~/components/Section.astro";
 ---
 
-<Layout metadata={{ title }}>
-  <section class="flex items-center h-full p-16">
-    <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
-      <div class="max-w-md text-center">
-        <h2 class="mb-8 font-bold text-9xl">
-          <span class="sr-only">Error</span>
-          <span class="text-primary">404</span>
-        </h2>
-        <p class="text-3xl font-semibold md:text-3xl">Sorry, we couldn't find this page.</p>
-        <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
-          But dont worry, you can find plenty of other things on our homepage.
-        </p>
-        <a rel="noopener noreferrer" href={getHomePermalink()} class="btn ml-4">Back to homepage</a>
-      </div>
-    </div>
-  </section>
+<Layout>
+	<Section>
+		<div class="min-h-full mx-auto w-full max-w-6xl">
+			<div class="text-center">
+				<p class="font-bold text-brand-red text-8xl">404</p>
+				<h1 class="mt-8 text-4xl font-black text-balance lg:text-5xl">This page could not be found.</h1>
+				<p class="mt-6 text-base text-balance">You may have mistyped the address or the page may have moved.</p>
+				<div class="mt-16">
+					<a href="/" class="button button-green">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+							class="size-4 inline-block -mt-0.5 mr-1"
+						>
+							<path
+								fill-rule="evenodd"
+								d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z"
+								clip-rule="evenodd"></path>
+						</svg>
+						Go back home
+					</a>
+				</div>
+			</div>
+		</div>
+	</Section>
 </Layout>

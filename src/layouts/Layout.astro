@@ -1,54 +1,70 @@
 ---
-import '~/assets/styles/tailwind.css';
-
-import { I18N } from '~/utils/config';
-
-import CommonMeta from '~/components/common/CommonMeta.astro';
-import Favicons from '~/components/Favicons.astro';
-import CustomStyles from '~/components/CustomStyles.astro';
-import ApplyColorMode from '~/components/common/ApplyColorMode.astro';
-import Metadata from '~/components/common/Metadata.astro';
-import SiteVerification from '~/components/common/SiteVerification.astro';
-import Analytics from '~/components/common/Analytics.astro';
-import BasicScripts from '~/components/common/BasicScripts.astro';
-
-// Uncomment line below to activate View Transitions
-// import { ViewTransitions } from 'astro:transitions';
-
-import type { MetaData as MetaDataType } from '~/types';
-
-export interface Props {
-  metadata?: MetaDataType;
-}
-
-const { metadata = {} } = Astro.props;
-const { language, textDirection } = I18N;
+import "~/styles/global.css";
+import { ClientRouter } from "astro:transitions";
+import Header from "~/components/Header.astro";
+import Footer from "~/components/Footer.astro";
+const { pageTitle, title, description } = Astro.props;
+const baseUrl = `${Astro.url.protocol}//${Astro.url.host}`;
+import { siteLang, themeColor } from "~/data/config";
 ---
 
 <!doctype html>
-<html lang={language} dir={textDirection} class="2xl:text-[20px]">
-  <head>
-    <CommonMeta />
-    <Favicons />
-    <CustomStyles />
-    <ApplyColorMode />
-    <Metadata {...metadata} />
-    <SiteVerification />
-    <Analytics />
+<html lang={siteLang}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content={themeColor} />
+		<meta name="description" content={description} />
+		<meta name="robots" content="index,follow" />
+		<meta name="googlebot" content="index,follow" />
+		<link rel="author" href="humans.txt" />
 
-    <!-- Uncomment line below to activate View Transitions -->
-    <!-- <ViewTransitions fallback="swap" /> -->
-  </head>
+		<!-- <link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/images/favicon/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/images/favicon/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/images/favicon/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="/site.webmanifest" />
+		<link
+			rel="mask-icon"
+			href="/images/favicon/safari-pinned-tab.svg"
+			color="#E6F4FF"
+		/> -->
+		<meta name="msapplication-TileColor" content="#ffffff" />
 
-  <body class="antialiased text-default bg-page tracking-tight">
-    <slot />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:image" content={`${baseUrl}/images/og-image.jpg`} />
+		<meta property="og:description" content={description} />
+		<meta property="og:site_name" content="WP Infusion" />
+		<meta property="og:locale" content={siteLang} />
 
-    <BasicScripts />
-
-    <style is:global>
-      img {
-        content-visibility: auto;
-      }
-    </style>
-  </body>
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:url" content={Astro.url} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<!-- <meta name="twitter:image" content={`${baseUrl}/images/og-image.jpg`} /> -->
+		<title>{pageTitle}</title>
+		<ClientRouter />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</body>
 </html>
