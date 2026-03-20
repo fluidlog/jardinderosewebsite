@@ -2,19 +2,19 @@
 	{
 		"id": 1,
 		"title": "Jardin",
-		"image": "/src/assets/images/gallery/jardin.jpg",
+		"image": "/src/assets/images/gallery/jardin.png",
 		"alt": "Jardin"
 	},
 	{
 		"id": 2,
 		"title": "Alambic",
-		"image": "/src/assets/images/gallery/alambic.jpg",
+		"image": "/src/assets/images/gallery/alambic.png",
 		"alt": "Alambic"
-	}
+	},
 	{
 		"id": 3,
 		"title": "Romarin",
-		"image": "/src/assets/images/gallery/romarin.jpg",
+		"image": "/src/assets/images/gallery/romarin.png",
 		"alt": "Romarin"
 	}
 ]
