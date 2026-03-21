@@ -5,7 +5,7 @@ export const menuMain = [
         highlighted: false,
     },
     {
-        name: "Gallerie",
+        name: "Galerie",
         url: "/gallery",
         highlighted: false,
     }

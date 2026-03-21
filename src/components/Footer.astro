@@ -2,11 +2,27 @@
 import { menuMain } from "~/data/menus";
 const currentYear = new Date().getFullYear();
 import { siteName } from "~/data/config";
+import { Picture } from "astro:assets";
+//Images
+import LogoImage from "~/assets/images/logo.png";
 ---
 
 <footer class="bg-brand-green text-white">
 	<div class="container pt-16 pb-8">
-		<p class="text-center font-bold text-4xl text-white">Jardin de <span class="text-brand-red bg-white px-3 ml-1 rounded-lg">Rose</span></p>
+		<p class="text-center font-bold bg-white text-4xl text-white">
+			<div slot="hero-content-left">
+				<Picture
+						class:list={"mx-auto"}
+						class={"bg-white rounded-2xl"}
+						src={LogoImage}
+						height={50}
+						formats={["avif", "webp"]}
+						alt="A description of my image."
+						loading={"eager"}
+						fetchpriority={"high"}
+				/>
+			</div>
+		</p>
 		<nav class="flex flex-col sm:flex-row items-center justify-center gap-x-12 gap-y-3 font-medium mt-6" aria-label="Footer">
 			{
 				menuMain.map((item) => (

@@ -14,7 +14,7 @@ import LogoImage from "~/assets/images/logo.png";
 ---
 
 <header x-data="{ open: false }" @keydown.window.escape="open = false">
-	<div class="container py-6">
+	<div class="bg-green-100 container py-6">
 		<nav class="flex items-center justify-between" aria-label="Global">
 			<a href="/" class="-m-1.5 p-1.5">
 				<div slot="hero-content-left">
@@ -79,7 +79,17 @@ import LogoImage from "~/assets/images/logo.png";
 			>
 				<div class="flex items-center justify-between">
 					<a href="/" class="-m-1.5 p-1.5">
-						<p class="font-bold text-4xl text-brand-green">Jardin de<span class="text-brand-red">Rose</span></p>
+						<div slot="hero-content-left">
+							<Picture
+								class:list={"mx-auto"}
+								src={LogoImage}
+								height={50}
+								formats={["avif", "webp"]}
+								alt="A description of my image."
+								loading={"eager"}
+								fetchpriority={"high"}
+							/>
+						</div>
 					</a>
 					<button type="button" class="-m-2.5 p-2.5 text-brand-red" @click="open = false">
 						<span class="sr-only">Close menu</span>
