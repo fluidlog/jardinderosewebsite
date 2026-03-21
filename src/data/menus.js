@@ -5,8 +5,13 @@ export const menuMain = [
         highlighted: false,
     },
     {
+        name: "Catalogue",
+        url: "/catalogue",
+        highlighted: false,
+    },
+    {
         name: "Galerie",
-        url: "/gallery",
+        url: "/galerie",
         highlighted: false,
     }
 ];
