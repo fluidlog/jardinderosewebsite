@@ -13,14 +13,13 @@ import ReviewSlider from "~/components/ReviewSlider.astro";
 
 // Images
 import HelichryseHero from "~/assets/images/helichryse.png";
-import DecorativeImage from "~/assets/images/roses.png";
+import RosesImage from "~/assets/images/roses.png";
 ---
 
 <Layout title="Accueil" pageTitle="Accueil" description="Bienvenue !">
 	<Section class:list={"bg-white"}>
 		<Hero>
 			<div slot="hero-content-left" class="prose max-w-none max-lg:order-1">
-				<Badge title="Hydrolats & eaux florales naturels" />
 				<h3 class="font-black">« Les fleurs messagères pour le corps et l’esprit »</h3>
 				<h6 class="font-black">FLEURS, PLANTES AROMATIQUES & MÉDICINALES EN PRODUCTION LOCALE ET DE SAISON</h6>
 
@@ -37,9 +36,11 @@ import DecorativeImage from "~/assets/images/roses.png";
 				<span class="text-brand-green font-medium">Contactez-moi par mail : marionneau.claire [@] protonmail.com </span>
 
 			</div>
-			<div slot="hero-content-right">
+			<div class="text-center" slot="hero-content-right">
+				<Badge title="Hydrolats & eaux florales naturels" />
 				<Picture
 					class:list={"mx-auto"}
+					class={"rounded-xl"}
 					src={HelichryseHero}
 					height={600}
 					formats={["avif", "webp"]}
@@ -51,6 +52,6 @@ import DecorativeImage from "~/assets/images/roses.png";
 		</Hero>
 	</Section>
 
-	<WideImage image={DecorativeImage} alt="Roses" class:list={"aspect-video lg:aspect-[16/6]"} />
+	<WideImage image={RosesImage} alt="Roses" class:list={"aspect-video lg:aspect-[16/6]"} />
 
 </Layout>

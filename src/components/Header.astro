@@ -1,6 +1,7 @@
 ---
 import { menuMain } from "~/data/menus.js";
 import { Picture } from "astro:assets";
+import Badge from "~/components/Badge.astro";
 
 const rmTrailingSlash = (path: string): string => {
   return path.endsWith("/") && path.length > 1 

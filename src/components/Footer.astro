@@ -7,13 +7,12 @@ import { Picture } from "astro:assets";
 import LogoImage from "~/assets/images/logo.png";
 ---
 
-<footer class="bg-brand-green text-white">
+<footer class="bg-green-100 text-brand-green">
 	<div class="container pt-16 pb-8">
-		<p class="text-center font-bold bg-white text-4xl text-white">
+		<p class="text-center font-bold bg-white text-4xl">
 			<div slot="hero-content-left">
 				<Picture
 						class:list={"mx-auto"}
-						class={"bg-white rounded-2xl"}
 						src={LogoImage}
 						height={50}
 						formats={["avif", "webp"]}
@@ -32,6 +31,7 @@ import LogoImage from "~/assets/images/logo.png";
 				))
 			}
 		</nav>
-		<p class="mt-10 text-center text-sm">&copy; {currentYear} {siteName}. </p>
+		<p class="mt-10 text-center text-sm">&copy; {currentYear} {siteName}
+		<br/>Site statique réalisé sans IA sous <a href="https://astro.build/">Astro</a></p>
 	</div>
 </footer>
