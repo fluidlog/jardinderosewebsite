@@ -1,5 +1,6 @@
 ---
 import { menuMain } from "~/data/menus.js";
+import { Picture } from "astro:assets";
 
 const rmTrailingSlash = (path: string): string => {
   return path.endsWith("/") && path.length > 1 
@@ -8,13 +9,25 @@ const rmTrailingSlash = (path: string): string => {
 }
 
 const pathname = rmTrailingSlash(Astro.url.pathname);
+//Images
+import LogoImage from "~/assets/images/logo.png";
 ---
 
 <header x-data="{ open: false }" @keydown.window.escape="open = false">
 	<div class="container py-6">
 		<nav class="flex items-center justify-between" aria-label="Global">
 			<a href="/" class="-m-1.5 p-1.5">
-				<p class="font-bold text-4xl text-brand-green">Jardin de <span class="text-brand-red bg-brand-red/5 px-3 ml-1 rounded-lg">Rose</span></p>
+				<div slot="hero-content-left">
+					<Picture
+						class:list={"mx-auto"}
+						src={LogoImage}
+						height={50}
+						formats={["avif", "webp"]}
+						alt="A description of my image."
+						loading={"eager"}
+						fetchpriority={"high"}
+					/>
+				</div>
 			</a>
 			<div class="flex lg:hidden">
 				<button

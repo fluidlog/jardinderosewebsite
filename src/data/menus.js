@@ -8,10 +8,5 @@ export const menuMain = [
         name: "Gallerie",
         url: "/gallery",
         highlighted: false,
-    },
-    {
-        name: "Contact",
-        url: "/contact",
-        highlighted: false,
-    },
+    }
 ];
